@@ -30,9 +30,12 @@ client.once('ready', () => {
 client.on('messageCreate', message => {
   if(message.author.bot)
     return;
-
+  
   if(message.content.toLowerCase().startsWith('im ') || message.content.toLowerCase().startsWith(`i'm `))
     client.commands.get('im').execute(message);
+  if(message.content.toLowerCase().startsWith('hi dad') || message.content.toLowerCase().startsWith('hey dad') || message.content.toLowerCase().startsWith('hello dad')
+    || message.content.toLowerCase().startsWith('hi <@975870776853037096>') || message.content.toLowerCase().startsWith('hey <@975870776853037096>') || message.content.toLowerCase().startsWith('hello <@975870776853037096>'))
+    client.commands.get('greetings').execute(message);
 
   if(!message.content.startsWith(prefix))
     return;
